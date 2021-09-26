@@ -3,8 +3,11 @@ from Test import Test
 import sys
 
 n = len(sys.argv)
-if n < 3:
+if n == 3:
     print("Please enter training data and test data file along with python file")
+    quit()
+elif n == 2:
+    print("Please enter BOTH training data and test data file")
     quit()
 elif n == 3:
     training_file = sys.argv[1]
