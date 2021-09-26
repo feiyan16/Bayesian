@@ -3,7 +3,7 @@ from Test import Test
 import sys
 
 n = len(sys.argv)
-if n == 3:
+if n == 1:
     print("Please enter training data and test data file along with python file")
     quit()
 elif n == 2:
