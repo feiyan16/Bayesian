@@ -15,7 +15,7 @@ class NaiveBayes:
         self.table = JointDistributionTable(filepath)
         self.get_sizes()
         self.get_probabilities()
-        self.print()
+        self.print_probabilities()
 
     def get_sizes(self):
         self.u = self.table.row_size()
@@ -60,18 +60,18 @@ class NaiveBayes:
             self.p_a0_1[attribute] = ct_0 / self.n1
             self.p_a1_1[attribute] = ct_1 / self.n1
 
-    def print(self):
+    def print_probabilities(self):
         class_ = "P(class={value})={prob:.2f}"
         attribute_ = "P({att}={val}|{clss})={prob:.2f}"
-        print(class_.format(value=0, prob=self.p_0), end=' ')
+        print(class_.format(value=0, prob=self.p_0), end=" ")
         for i in range(self.table.col_size()):
             attribute = self.table.attributes[i]
-            print(attribute_.format(att=attribute, val=0, clss=0, prob=self.p_a0_0[attribute]), end=' ')
-            print(attribute_.format(att=attribute, val=1, clss=0, prob=self.p_a1_0[attribute]), end=' ')
+            print(attribute_.format(att=attribute, val=0, clss=0, prob=self.p_a0_0[attribute]), end=" ")
+            print(attribute_.format(att=attribute, val=1, clss=0, prob=self.p_a1_0[attribute]), end=" ")
         print()
-        print(class_.format(value=1, prob=self.p_1), end=' ')
+        print(class_.format(value=1, prob=self.p_1), end=" ")
         for i in range(self.table.col_size()):
             attribute = self.table.attributes[i]
-            print(attribute_.format(att=attribute, val=0, clss=1, prob=self.p_a0_1[attribute]), end=' ')
-            print(attribute_.format(att=attribute, val=1, clss=1, prob=self.p_a1_1[attribute]), end=' ')
+            print(attribute_.format(att=attribute, val=0, clss=1, prob=self.p_a0_1[attribute]), end=" ")
+            print(attribute_.format(att=attribute, val=1, clss=1, prob=self.p_a1_1[attribute]), end=" ")
         print("\n")

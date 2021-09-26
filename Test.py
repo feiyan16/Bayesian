@@ -28,7 +28,7 @@ class Test:
             else:
                 self.bayes_classification.append(1)
         print("Accuracy on {} set ({} instances): {:.2f}%".format(self.name, self.table.row_size(),
-                                                                 self.calculate_accuracy()))
+                                                                  self.calculate_accuracy()))
 
     def calculate_accuracy(self):
         similar = 0
